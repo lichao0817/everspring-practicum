@@ -25,54 +25,63 @@ cd go_assignment
 1. Different users with same names should be allowed to register.
 2. Each class only has one section.
 3. To make the url thorter, assume that this is the only version of the API.
+
 ## API Services
-### Users
-#### URL
+### 1. Users
+#### a) Create a New User
+##### i) URL
 ```
-GET http://localhost:8080/users/{username}
+POST http://localhost:8080/users
 ```
-#### Example Request 1 (Valid Username)
-```
-curl -X GET 'http://localhost:8080/users/vgbootcamp'
-```
-#### Example Response 1
+##### ii) Request Body
 ``` json
 {
-   "data":{
-      "username":"vgbootcamp",
-      "views":51066404,
-      "followers":320571,
-      "language":"en",
-      "game":"Super Smash Bros. Melee",
-      "display_name":"VGBootCamp",
-      "created_at":"2010-01-09T21:35:21Z",
-      "bio":"Headed by VGBC | GimR, Video Game Boot Camp is the leading Live-Streamer and Content Creator for competitive Super Smash Bros. This includes Melee, Brawl, Smash WiiU, and 64! Learn.Play.Win! ",
-      "is_streaming":false
-   },
-   "status":200
+   "name":"John Doe",
+   "username":"jdoe",
+   "type":"1"
 }
 ```
-#### Example Request 2 (Invalid Username)
+##### iii) Response
+### 2. Classes
+#### a) Create a New Class
+##### i) Request
+###### URL
 ```
-curl -X GET 'http://localhost:8080/users/zgjlkqjtw'
+POST http://localhost:8080/classes
 ```
-#### Example Response 2
+###### Body
 ``` json
 {
-   "error":"Bad Request",
-   "status":400,
-   "message":"Invalid username"
+   "name":"Linear Algebra",
+   "courseCode":"18060"
 }
 ```
-#### Example Request 3 (Invalid API URL)
+`name`: the name of the course, should be `string`
+
+`courseCode`: the id of the course, should be `int`
+
+##### ii) Response
+###### Status
+`201`: the class has been successfully created.
+
+`409`: a class with the same `courseCode` has already been created
+#### b) Find a Class by CourseCode
+##### i) Request
+###### URL
 ```
-curl -X GET 'http://localhost:8080/hello'
+GET http://localhost:8080/classes/{courseCode}
 ```
-#### Example Response 3
+##### ii) Response
+###### Status
+`200`: the class can be successfully found
+
+`204`: the class cannot be found
+###### Body
 ``` json
-{
-   "error":"Invalid API",
-   "status":400,
-   "message":"The API requested is not currently supported please use http://localhost:8080/users/{username}"
+{  
+   "data":{  
+      "name":"Linear Algebra",
+      "courseCode":18060
+   }
 }
 ```
