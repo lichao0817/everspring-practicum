@@ -25,6 +25,7 @@ cd go_assignment
 1. Different users with same names should be allowed to register.
 2. Each class only has one section.
 3. To make the url thorter, assume that this is the only version of the API.
+
 ## API Services
 ### 1. Users
 #### a) Create New User
@@ -32,9 +33,17 @@ cd go_assignment
 ```
 POST http://localhost:8080/users
 ```
+##### ii) Request Body
+``` json
+{
+   "name":"John Doe",
+   "username":"jdoe",
+   "type":"1"
+}
+```
 #### Example Request 1 (Valid Username)
 ```
-curl -X GET 'http://localhost:8080/users/vgbootcamp'
+curl -d '{"name":"John Doe", "username":"jdoe", "type":"1"}' -H "Content-Type: application/json" -X POST http://localhost:8080/users
 ```
 #### Example Response 1
 ``` json
