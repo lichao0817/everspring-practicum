@@ -64,8 +64,6 @@ POST http://localhost:8080/classes
 ###### Status
 `201`: the class has been successfully created.
 
-`400`: either the url or the request body is not valid
-
 `409`: a class with the same `courseCode` has already been created
 #### b) Find a Class by CourseCode
 ##### i) Request
@@ -78,8 +76,6 @@ GET http://localhost:8080/classes/{courseCode}
 `200`: the class can be successfully found
 
 `204`: the class cannot be found
-
-`400`: either the url or the request body is not valid
 ###### Body
 ``` json
 {  
