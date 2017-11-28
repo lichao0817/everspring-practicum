@@ -2,36 +2,31 @@ package web;
 
 
 import domain.Class;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import service.ClassService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/classes")
 public class ClassController {
 
+    @Autowired
     private ClassService classService;
-
-    public ClassController() {
-        this.classService = new ClassService();
-    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Class> getAllClasses() {
-        return stubClasses();
+        return classService.getAllClasses();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public String addClass(@RequestBody Class c) {
         if (classService.addClass(c)) {
-            return "CREATE SUCCEEDED";
+            return "CLASS CREATE SUCCEEDED";
         }
-        return "CREATE FAILED";
+        return "CLASS CREATE FAILED";
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
@@ -44,25 +39,17 @@ public class ClassController {
     @ResponseStatus(HttpStatus.OK)
     public String deleteClass(@PathVariable("id") int id) {
         if (classService.deleteClass(id)) {
-            return "DELETE SUCCEEDED";
+            return "CLASS DELETE SUCCEEDED";
         }
-        return "DELETE FAILED";
+        return "CLASS DELETE FAILED";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public String updateClass(@PathVariable("id") int id, @RequestBody Class c) {
         if (classService.updateClass(c)) {
-            return "UPDATE SUCCEEDED";
+            return "CLASS UPDATE SUCCEEDED";
         }
-        return "UPDATE FAILED";
-    }
-
-    private static List<Class> stubClasses() {
-        List<Class> classes = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            classes.add(new Class("Class"+i, i));
-        }
-        return classes;
+        return "CLASS UPDATE FAILED";
     }
 }

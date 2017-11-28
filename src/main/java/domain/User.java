@@ -1,8 +1,7 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.Set;
+import org.springframework.data.annotation.Id;
 
 public class User {
     @JsonProperty("name")
@@ -11,9 +10,9 @@ public class User {
     @JsonProperty("type")
     private int type;
 
+    @Id
     @JsonProperty("username")
     private String username;
-    private Set<Class> classes;
 
     public static final int TYPE_STUDENT = 1;
     public static final int TYPE_INSTRUCTOR = 2;
