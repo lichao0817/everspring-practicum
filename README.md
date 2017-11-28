@@ -43,7 +43,7 @@ POST http://localhost:8080/users
 ```
 ##### iii) Response
 ### 2. Classes
-#### a) Create New Class
+#### a) Create a New Class
 ##### i) URL
 ```
 POST http://localhost:8080/classes
