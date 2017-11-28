@@ -28,7 +28,7 @@ cd go_assignment
 
 ## API Services
 ### 1. Users
-#### a) Create New User
+#### a) Create a New User
 ##### i) URL
 ```
 POST http://localhost:8080/users
