@@ -89,3 +89,16 @@ curl -X GET 'http://localhost:8080/hello'
    "message":"The API requested is not currently supported please use http://localhost:8080/users/{username}"
 }
 ```
+### 2. Classes
+#### a) Create New Class
+##### i) URL
+```
+POST http://localhost:8080/classes
+```
+##### ii) Request Body
+``` json
+{
+   "name":"Linear Algebra",
+   "courseCode":"18060"
+}
+```
