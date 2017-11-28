@@ -107,7 +107,7 @@ POST http://localhost:8080/classes
 `courseCode`: the id of the course, should be `int`
 
 ##### iii) Response
-###### * Status
+###### Status
 `201`: the class has been successfully created.
 
 `400`: the request is not valid either the url or the request body is not valid
