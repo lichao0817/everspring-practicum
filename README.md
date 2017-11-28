@@ -24,6 +24,7 @@ cd go_assignment
 ## Assumptions
 1. Different users with same names should be allowed to register.
 2. Each class only has one section.
+3. To make the url thorter, assume that this is the only version of the API.
 ## API Services
 ### Users
 #### URL
