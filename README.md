@@ -47,6 +47,9 @@ curl -d '{"name":"John Doe", "username":"jdoe", "type":"1"}' -H "Content-Type: a
 ```
 #### Example Response 1
 ``` json
+Response Status: 200
+
+Response Body:
 {
    "data":{
       "username":"vgbootcamp",
