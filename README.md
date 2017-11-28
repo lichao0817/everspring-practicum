@@ -26,10 +26,11 @@ cd go_assignment
 2. Each class only has one section.
 3. To make the url thorter, assume that this is the only version of the API.
 ## API Services
-### Users
-#### URL
+### 1. Users
+#### a) Create New User
+##### i) URL
 ```
-GET http://localhost:8080/users/{username}
+POST http://localhost:8080/users
 ```
 #### Example Request 1 (Valid Username)
 ```
