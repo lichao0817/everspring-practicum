@@ -58,7 +58,7 @@ POST http://localhost:8080/classes
 ```
 `name`: the name of the course, should be `string`
 
-`courseCode`: the id of the course, should be `int`
+`courseCode`: the id of the course, should be `string`
 
 ##### ii) Response
 ###### Status
@@ -81,7 +81,7 @@ GET http://localhost:8080/classes/{courseCode}
 {  
    "data":{  
       "name":"Linear Algebra",
-      "courseCode":18060
+      "courseCode":"math340"
    }
 }
 ```
