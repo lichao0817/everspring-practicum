@@ -1,10 +1,14 @@
 package web;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import domain.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import util.Utils;
+
 import java.util.List;
 
 @RestController
@@ -15,41 +19,60 @@ public class ClassController {
     private ClassService classService;
 
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Class> getAllClasses() {
-        return classService.getAllClasses();
+    public ResponseEntity<String> getAllClasses() throws JsonProcessingException {
+        List<Class> data = classService.getAllClasses();
+        if (data == null || data.size() == 0) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(Utils.getJsonBody(data), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public String addClass(@RequestBody Class c) {
+    public ResponseEntity<String> addClass(@RequestBody Class c) {
         if (classService.addClass(c)) {
-            return "CLASS CREATE SUCCEEDED";
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
-        return "CLASS CREATE FAILED";
+
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public Class getClass(@PathVariable("id") int id) {
-        return classService.getClass(id);
+    public ResponseEntity<String> getClass(@PathVariable("id") String id) {
+        Class c = classService.getClass(id);
+        if (c == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(Utils.getJsonBody(c), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public String deleteClass(@PathVariable("id") int id) {
+    public ResponseEntity<String> deleteClass(@PathVariable("id") String id) {
         if (classService.deleteClass(id)) {
-            return "CLASS DELETE SUCCEEDED";
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "CLASS DELETE FAILED";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public String updateClass(@PathVariable("id") int id, @RequestBody Class c) {
-        if (classService.updateClass(c)) {
-            return "CLASS UPDATE SUCCEEDED";
+    public ResponseEntity<String> updateClass(@PathVariable("id") String id, @RequestBody Class c) {
+        if (c.getCourseCode().equals(id) && classService.updateClass(c)) {
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "CLASS UPDATE FAILED";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(value = "/{id}/users", method = RequestMethod.GET)
+    public ResponseEntity<String> getAllUsersForClass(@PathVariable("id") String id) {
+        return new ResponseEntity<>("GET ALL USERS FOR CLASS", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "{id}/users/{username}", method = RequestMethod.PUT)
+    public ResponseEntity<String> enrollUser(@PathVariable("id") String id, @PathVariable("username") String username) {
+        return new ResponseEntity<>("ADD USER TO CLASS", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "{id}/users/{username}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> unenrollUser(@PathVariable("id") String id, @PathVariable("username") String username) {
+        return new ResponseEntity<>("REMOVE USER FROM CLASS", HttpStatus.OK);
     }
 }

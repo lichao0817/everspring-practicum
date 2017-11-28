@@ -9,11 +9,11 @@ public class Class {
 
     @Id
     @JsonProperty("courseCode")
-    private int courseCode;
+    private String courseCode;
 
     public Class() {}
 
-    public Class(String name, int courseCode) {
+    public Class(String name, String courseCode) {
         this.name = name;
         this.courseCode = courseCode;
     }
@@ -26,11 +26,11 @@ public class Class {
         this.name = name;
     }
 
-    public int getCourseCode() {
+    public String getCourseCode() {
         return courseCode;
     }
 
-    public void setCourseCode(int courseCode) {
+    public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
 

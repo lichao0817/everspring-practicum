@@ -32,7 +32,7 @@ public class ClassService {
         return resp != null;
     }
 
-    public boolean deleteClass(int courseCode) {
+    public boolean deleteClass(String courseCode) {
         if (!classRepo.exists(courseCode)) {
             return false;
         }
@@ -40,7 +40,7 @@ public class ClassService {
         return true;
     }
 
-    public Class getClass(int courseCode) {
+    public Class getClass(String courseCode) {
         return classRepo.findOne(courseCode);
     }
 }
