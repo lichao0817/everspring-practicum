@@ -105,3 +105,11 @@ POST http://localhost:8080/classes
 `name`: the name of the course, should be `string`
 
 `courseCode`: the id of the course, should be `int`
+
+##### iii) Response
+###### * Status
+`201`: the class has been successfully created.
+
+`400`: the request is not valid either the url or the request body is not valid
+
+`409`: a class with the same `courseCode` has already been created
