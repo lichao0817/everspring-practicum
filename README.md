@@ -102,3 +102,5 @@ POST http://localhost:8080/classes
    "courseCode":"18060"
 }
 ```
+`name`: the name of the course, should be `string`
+`courseCode`: the id of the course, should be `int`
