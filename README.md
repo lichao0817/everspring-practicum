@@ -49,7 +49,7 @@ POST http://localhost:8080/users
 ```
 POST http://localhost:8080/classes
 ```
-###### Request Body
+###### Body
 ``` json
 {
    "name":"Linear Algebra",
