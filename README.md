@@ -112,6 +112,36 @@ GET http://localhost:8080/users/{username}
     }
 }
 ```
+#### d) Update an User by Username
+##### i) Request
+###### URL
+```
+PUT http://localhost:8080/users/{username}
+```
+###### Body
+``` json
+{
+   "name":"John Smith",
+   "username":"jsmith",
+   "type":"student"
+}
+```
+##### ii) Response
+###### Status
+`204`: the user has been successfully updated
+
+`404`: the user cannot be found
+#### e) Delete an User by Username
+##### i) Request
+###### URL
+```
+DELETE http://localhost:8080/users/{username}
+```
+##### ii) Response
+###### Status
+`204`: the user can be successfully found
+
+`404`: the user cannot be found
 ### 2. Classes
 #### a) List All Classes
 ##### i) Request
