@@ -3,8 +3,7 @@
 ## System Requirements
 1. Java 8
 2. Maven
-3. MongoDB
-  * New tables `course` and `user` will be created, make sure you have a new database
+3. MongoDB (New tables `course` and `user` will be created, make sure you have space for them)
 4. Port 8080
 
 ## How to Build and Run the App
@@ -19,7 +18,9 @@ cd everspring-practicum
 mvn package
 ```
 3. Run the app
-
+``` shell
+java -jar target/tinylms-1.0.0.jar
+```
 
 ## Assumptions
 1. Different users with same names should be allowed to register.
