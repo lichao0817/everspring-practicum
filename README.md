@@ -77,7 +77,7 @@ GET http://localhost:8080/classes
 
 `name`: the name `string` of the course
 
-`courseCode`: the id `string` of the course, is case insensitive
+`courseCode`: the id `string` of the course, is case insensitive and cannot be changed once created
 
 
 #### b) Create a New Class
