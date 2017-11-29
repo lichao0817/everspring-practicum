@@ -50,10 +50,16 @@ POST http://localhost:8080/users
 {
    "name":"John Doe",
    "username":"jdoe",
-   "type":"1"
+   "type":"instructor"
 }
 ```
 ##### ii) Response
+###### Status
+`201`: the user has been successfully created.
+
+`400`: either the username or the type is not valid
+
+`409`: an user with the same `username` has already been created
 ### 2. Classes
 #### a) List All Classes
 ##### i) Request
