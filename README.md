@@ -29,6 +29,8 @@ java -jar target/tinylms-1.0.0.jar
 4. Only `GET`, `PUT`, `POST`, and `DELETE` are used, other http methods will generate an error.
 5. Only the URLs metioned in the document are accessible, other URLs would generate an error.
 6. Status code is sufficient for methods that are not `GET` in order for simplicity and short payload.
+7. Course code is case insensitive in order to avoid confusion.
+8. Username is case sensitive in order to allow more flexibilities.
 
 ## API Services
 ### 1. Users
