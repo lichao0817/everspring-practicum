@@ -40,11 +40,12 @@ GET http://localhost:8080/users
 
 `204`: there are no users currently
 #### b) Create a New User
-##### i) URL
+##### i) Request
+###### URL
 ```
 POST http://localhost:8080/users
 ```
-##### ii) Request Body
+###### Body
 ``` json
 {
    "name":"John Doe",
@@ -52,7 +53,7 @@ POST http://localhost:8080/users
    "type":"1"
 }
 ```
-##### iii) Response
+##### ii) Response
 ### 2. Classes
 #### a) List All Classes
 ##### i) Request
