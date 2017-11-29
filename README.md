@@ -3,6 +3,7 @@
 ## System Requirements
 1. Java 8
 2. MongoDB
+3. Port 8080
 
 ## How to Build and Run the App
 1. Clone the project to your computer
