@@ -299,3 +299,6 @@ DELETE http://localhost:8080/classes/{courseCode}/users/{username}
 `400`: either the user or class does not exist
 
 `404`: the user is not in the class roster
+
+#### c) Display Enrollment
+Enrollment status can be checked from either `user` or `class` service.
