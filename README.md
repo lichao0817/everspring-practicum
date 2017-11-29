@@ -162,7 +162,7 @@ PUT http://localhost:8080/classes/{courseCode}/users/{username}
 `208`: the user has already enrolled
 
 `400`: either the user or class does not exist
-#### f) Unroll an User to a Class
+#### f) Unroll an User from a Class
 ##### i) Request
 ###### URL
 ```
