@@ -3,6 +3,7 @@
 ## System Requirements
 1. Java 8
 2. MongoDB
+  * New tables `course` and `user` will be created, make sure you have a new database
 3. Port 8080
 
 ## How to Build and Run the App
