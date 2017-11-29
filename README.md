@@ -60,6 +60,13 @@ GET http://localhost:8080/users
     }
 }
 ```
+`courses`: the course codes of the courses that the users enrolled
+
+`username`: the id `string` of the user, case sensitive and contains no space
+
+`name`: the name `string` of the user, case sensitive
+
+`type`: indicate the user type, currently only support "instructor" and "student", case insensitive
 #### b) Create a New User
 ##### i) Request
 ###### URL
