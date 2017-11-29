@@ -162,12 +162,17 @@ GET http://localhost:8080/classes
     "data": {
         "courses": [
             {
-                "users": [],
+                "users": [
+                    "Ablk"
+                ],
                 "courseCode": "math340",
                 "name": "Linear Algebra"
             },
             {
-                "users": [],
+                "users": [
+                    "jsmith",
+                    "asmith"
+                ],
                 "courseCode": "cs302",
                 "name": "Intro to Computer Science"
             }
