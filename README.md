@@ -7,8 +7,8 @@
 ## How to Build and Run the App
 1. Clone the project to your computer
 ```
-git clone https://github.com/lichao0817/go_assignment.git
-cd go_assignment
+git clone https://github.com/lichao0817/everspring-practicum.git
+cd everspring-practicum
 ```
 
 2. Build the app with docker:
