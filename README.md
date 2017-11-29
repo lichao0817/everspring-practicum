@@ -52,13 +52,13 @@ POST http://localhost:8080/classes
 ###### Body
 ``` json
 {
-   "name":"Linear Algebra",
-   "courseCode":"18060"
+   "name":"Intro to CS",
+   "courseCode":"cs302"
 }
 ```
 `name`: the name of the course, should be `string`
 
-`courseCode`: the id of the course, should be `string`
+`courseCode`: the id of the course, should be `string`, and is case insensitive
 
 ##### ii) Response
 ###### Status
