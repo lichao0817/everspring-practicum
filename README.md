@@ -274,7 +274,7 @@ DELETE http://localhost:8080/classes/{courseCode}
 ##### i) Request
 ###### URL
 ```
-PUT http://localhost:8080/classes/{courseCode}/users/{username}
+PUT or POST http://localhost:8080/classes/{courseCode}/users/{username}
 ```
 ##### ii) Response
 ###### Status
