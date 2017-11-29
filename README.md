@@ -303,4 +303,4 @@ DELETE http://localhost:8080/classes/{courseCode}/users/{username}
 `404`: the user is not in the class roster
 
 #### c) Display Enrollment
-Enrollment information can be checked from either `user` or `class` service metioned above.
+Enrollment information can be accessed through either `user` or `class` service metioned above.
