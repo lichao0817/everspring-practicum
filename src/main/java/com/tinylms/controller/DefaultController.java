@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DefaultController {
     @RequestMapping
     public ResponseEntity<String> defaultHandler() {
-        return new ResponseEntity<>("Welcome to Tiny LMS", HttpStatus.OK);
+        return new ResponseEntity<>("Welcome to Tiny LMS! Documentation is available on https://github.com/lichao0817/everspring-practicum", HttpStatus.OK);
     }
 }
