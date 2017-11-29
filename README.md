@@ -148,3 +148,17 @@ PUT http://localhost:8080/classes/{courseCode}
 `204`: the class has been successfully updated
 
 `404`: the class cannot be found
+
+#### f) Enroll an User to a Class
+##### i) Request
+###### URL
+```
+PUT http://localhost:8080/classes/{courseCode}/users/{username}
+```
+##### ii) Response
+###### Status
+`201`: the class has been successfully enrolled
+
+`208`: the user has already enrolled
+
+`400`: either the user or class does not exist
