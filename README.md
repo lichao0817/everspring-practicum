@@ -99,7 +99,7 @@ POST http://localhost:8080/classes
 `201`: the class has been successfully created.
 
 `409`: a class with the same `courseCode` has already been created
-#### b) Find a Class by CourseCode
+#### c) Find a Class by CourseCode
 ##### i) Request
 ###### URL
 ```
