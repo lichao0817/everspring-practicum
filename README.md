@@ -2,27 +2,25 @@
 
 ## System Requirements
 1. Java 8
-2. MongoDB
+2. Maven
+3. MongoDB
   * New tables `course` and `user` will be created, make sure you have a new database
-3. Port 8080
+4. Port 8080
 
 ## How to Build and Run the App
 1. Clone the project to your computer
-```
+``` shell
 git clone https://github.com/lichao0817/everspring-practicum.git
 cd everspring-practicum
 ```
 
-2. Build the app with docker:
+2. Build the app with Maven:
+``` shell
+mvn package
+```
+3. Run the app
 
-  ```
-  docker build -t app/main .
-  docker run -p 8080:8080 -d app/main
-  ```
-  or you can run the application using go instead:
-  ```
-  go run main.go
-  ```
+
 ## Assumptions
 1. Different users with same names should be allowed to register.
 2. Each class only has one section.
