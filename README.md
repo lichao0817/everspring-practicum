@@ -39,6 +39,27 @@ GET http://localhost:8080/users
 `200`: the user list is successfully returned
 
 `204`: there are no users currently
+###### Body
+``` json
+{
+    "data": {
+        "users": [
+            {
+                "courses": [],
+                "username": "jsmith",
+                "name": "Jon Smith",
+                "type": "student"
+            },
+            {
+                "courses": [],
+                "username": "asmith",
+                "name": "Adam Smith",
+                "type": "instructor"
+            }
+        ]
+    }
+}
+```
 #### b) Create a New User
 ##### i) Request
 ###### URL
