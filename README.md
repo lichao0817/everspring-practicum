@@ -28,7 +28,18 @@ cd everspring-practicum
 
 ## API Services
 ### 1. Users
-#### a) Create a New User
+#### a) List All Users
+##### i) Request
+###### URL
+```
+GET http://localhost:8080/users
+```
+##### ii) Response
+###### Status
+`200`: the user list is successfully returned
+
+`204`: there are no users currently
+#### b) Create a New User
 ##### i) URL
 ```
 POST http://localhost:8080/users
@@ -43,7 +54,7 @@ POST http://localhost:8080/users
 ```
 ##### iii) Response
 ### 2. Classes
-#### a) Find All Classes
+#### a) List All Classes
 ##### i) Request
 ###### URL
 ```
