@@ -43,7 +43,44 @@ POST http://localhost:8080/users
 ```
 ##### iii) Response
 ### 2. Classes
-#### a) Create a New Class
+#### a) Find All Classes
+##### i) Request
+###### URL
+```
+GET http://localhost:8080/classes
+```
+##### ii) Response
+###### Status
+`200`: the class list is successfully returned
+
+`204`: there are no classes currently
+###### Body
+``` json
+{
+    "data": [
+        {
+            "users": [
+                "jdoe"
+            ],
+            "courseCode": "cs302",
+            "name": "Intro to CS"
+        },
+        {
+            "users": [],
+            "courseCode": "math340",
+            "name": "Linear Algebra"
+        }
+    ]
+}
+```
+`users`: the `list` of users that have been added to the course
+
+`name`: the name `string` of the course
+
+`courseCode`: the id `string` of the course, is case insensitive
+
+
+#### b) Create a New Class
 ##### i) Request
 ###### URL
 ```
@@ -56,9 +93,6 @@ POST http://localhost:8080/classes
    "courseCode":"cs302"
 }
 ```
-`name`: the name of the course, should be `string`
-
-`courseCode`: the id of the course, should be `string`, and is case insensitive
 
 ##### ii) Response
 ###### Status
