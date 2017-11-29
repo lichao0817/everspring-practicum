@@ -27,7 +27,7 @@ java -jar target/tinylms-1.0.0.jar
 2. Each class only has one section.
 3. To make the url thorter, assume that this is the only version of the API. So no version number is needed in the API url.
 4. Only `GET`, `PUT`, `POST`, and `DELETE` are used, other http methods will generate an error.
-5. Only the URLs metioned in the document are accessible, other URLs would generate an error.
+5. Only the URLs metioned in this documentation plus the default URL are accessible, other URLs would generate an error handled by Spring.
 6. Status code is sufficient for methods that are not `GET` in order for simplicity and short payload.
 7. Course code is case insensitive in order to avoid confusion.
 8. Username is case sensitive in order to allow more flexibilities.
