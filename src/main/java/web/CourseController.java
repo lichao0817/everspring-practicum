@@ -30,7 +30,7 @@ public class CourseController {
         if (data == null || data.size() == 0) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(Utils.getJsonBody(data), HttpStatus.OK);
+        return new ResponseEntity<>(Utils.getJsonBody(data, "courses"), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -48,7 +48,7 @@ public class CourseController {
         if (c == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(Utils.getJsonBody(c), HttpStatus.OK);
+        return new ResponseEntity<>(Utils.getJsonBody(c, "course"), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{courseCode}", method = RequestMethod.DELETE)

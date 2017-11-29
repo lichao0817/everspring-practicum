@@ -16,20 +16,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private CourseService courseService;
-
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getAllUsers() {
         List<User> data = userService.getAllUsers();
         if (data == null || data.size() == 0) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(Utils.getJsonBody(data), HttpStatus.OK);
+        return new ResponseEntity<>(Utils.getJsonBody(data, "users"), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> addUser(@RequestBody User user) {
+        if (!User.checkUser(user)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         if (userService.addUser(user)) {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
@@ -43,7 +43,7 @@ public class UserController {
         if (u == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(Utils.getJsonBody(u), HttpStatus.OK);
+        return new ResponseEntity<>(Utils.getJsonBody(u, "user"), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.DELETE)
@@ -56,6 +56,9 @@ public class UserController {
 
     @RequestMapping(value = "/{username}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateUser(@PathVariable("username") String username, @RequestBody User user) {
+        if (!User.checkUser(user)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         if (username.equals(user.getUsername()) && userService.updateUser(user)) {
             return new ResponseEntity<>(HttpStatus.OK);
         }

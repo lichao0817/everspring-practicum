@@ -17,18 +17,18 @@ public class User {
     private String name;
 
     @JsonProperty("type")
-    private int type;
+    private String type;
 
     private Set<String> courses;
 
-    public static final int TYPE_STUDENT = 1;
-    public static final int TYPE_INSTRUCTOR = 2;
+    public static final String TYPE_STUDENT = "student";
+    public static final String TYPE_INSTRUCTOR = "instructor";
 
     public User() {}
 
-    public User(String name, int type, String username, Set<String> courses) {
+    public User(String name, String type, String username, Set<String> courses) {
         this.name = name;
-        this.type = type;
+        this.type = type.toLowerCase().trim();
         this.username = username;
         this.courses = courses;
     }
@@ -41,12 +41,12 @@ public class User {
         this.name = name;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setType(String type) {
+        this.type = type.toLowerCase().trim();
     }
 
     public String getUsername() {
@@ -66,6 +66,18 @@ public class User {
 
     public void setCourses(Set<String> courses) {
         this.courses = courses;
+    }
+
+    public static boolean checkUser(User user) {
+        if (user.getType().equals(TYPE_INSTRUCTOR) || user.getType().equals(TYPE_STUDENT)) {
+            for (int i = 0; i < user.getUsername().length(); i++) {
+                if (Character.isSpaceChar(user.getUsername().charAt(i))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override
