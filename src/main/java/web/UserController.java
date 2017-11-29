@@ -3,7 +3,10 @@ package web;
 import domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import util.Utils;
 
 import java.util.List;
 
@@ -13,42 +16,49 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public List<User> getAllClasses() {
-        return userService.getAllUsers();
+    @Autowired
+    private CourseService courseService;
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> getAllUsers() {
+        List<User> data = userService.getAllUsers();
+        if (data == null || data.size() == 0) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(Utils.getJsonBody(data), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public String addClass(@RequestBody User user) {
+    public ResponseEntity<String> addUser(@RequestBody User user) {
         if (userService.addUser(user)) {
-            return "USER CREATE SUCCEEDED";
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
-        return "USER CREATE FAILED";
+
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
-    @RequestMapping(value = "/{username}",method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public User getUser(@PathVariable("username") String username) {
-        return userService.getUser(username);
+    @RequestMapping(value = "/{username}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> getUser(@PathVariable("username") String username) {
+        User u = userService.getUser(username);
+        if (u == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(Utils.getJsonBody(u), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public String deleteUser(@PathVariable("username") String username) {
+    public ResponseEntity<String> deleteUser(@PathVariable("username") String username) {
         if (userService.deleteUser(username)) {
-            return "USER DELETE SUCCEEDED";
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "USER DELETE FAILED";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public String updateClass(@PathVariable("username") String username, @RequestBody User user) {
-        if (userService.updateUser(user)) {
-            return "USER UPDATE SUCCEEDED";
+    public ResponseEntity<String> updateUser(@PathVariable("username") String username, @RequestBody User user) {
+        if (username.equals(user.getUsername()) && userService.updateUser(user)) {
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "USER UPDATE FAILED";
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

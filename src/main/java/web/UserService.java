@@ -43,4 +43,8 @@ public class UserService {
     public User getUser(String username) {
         return userRepo.findOne(username);
     }
+
+    public User save(User user) {
+        return userRepo.save(user);
+    }
 }
