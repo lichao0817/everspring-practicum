@@ -109,7 +109,7 @@ GET http://localhost:8080/classes/{courseCode}
 ###### Status
 `200`: the class can be successfully found
 
-`204`: the class cannot be found
+`404`: the class cannot be found
 ###### Body
 ``` json
 {  
