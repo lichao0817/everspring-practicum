@@ -162,3 +162,16 @@ PUT http://localhost:8080/classes/{courseCode}/users/{username}
 `208`: the user has already enrolled
 
 `400`: either the user or class does not exist
+#### f) Unroll an User to a Class
+##### i) Request
+###### URL
+```
+DELETE http://localhost:8080/classes/{courseCode}/users/{username}
+```
+##### ii) Response
+###### Status
+`204`: the class has been successfully unenrolled
+
+`400`: either the user or class does not exist
+
+`404`: the user is not in the class roster
