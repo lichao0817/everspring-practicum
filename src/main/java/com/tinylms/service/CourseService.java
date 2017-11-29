@@ -1,6 +1,7 @@
-package web;
+package com.tinylms.service;
 
-import domain.Course;
+import com.tinylms.domain.Course;
+import com.tinylms.dao.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

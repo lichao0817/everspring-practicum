@@ -1,4 +1,4 @@
-package domain;
+package com.tinylms.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;

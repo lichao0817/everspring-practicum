@@ -1,6 +1,6 @@
-package web;
+package com.tinylms.dao;
 
-import domain.Course;
+import com.tinylms.domain.Course;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface CourseRepository extends MongoRepository<Course, String> {}

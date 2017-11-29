@@ -1,12 +1,13 @@
-package web;
+package com.tinylms.controller;
 
-import domain.User;
+import com.tinylms.domain.User;
+import com.tinylms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import util.Utils;
+import com.tinylms.util.Utils;
 
 import java.util.List;
 

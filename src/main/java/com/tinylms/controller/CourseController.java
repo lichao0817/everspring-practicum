@@ -1,15 +1,17 @@
-package web;
+package com.tinylms.controller;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import domain.Course;
-import domain.User;
+import com.tinylms.domain.Course;
+import com.tinylms.domain.User;
+import com.tinylms.service.CourseService;
+import com.tinylms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import util.Utils;
+import com.tinylms.util.Utils;
 
 import java.util.List;
 import java.util.Set;
@@ -67,7 +69,12 @@ public class CourseController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "{courseCode}/users/{username}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{courseCode}/users/{username}", method = RequestMethod.GET)
+    public ResponseEntity<String> getEnrollment() {
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @RequestMapping(value = "{courseCode}/users/{username}", method = { RequestMethod.PUT, RequestMethod.POST })
     public ResponseEntity<String> enrollUser(@PathVariable("courseCode") String courseCode,
                                              @PathVariable("username") String username) {
         Course course = courseService.getCourse(courseCode);
