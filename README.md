@@ -2,31 +2,33 @@
 
 ## System Requirements
 1. Java 8
-2. MongoDB
-  * New tables `course` and `user` will be created, make sure you have a new database
-3. Port 8080
+2. Maven
+3. MongoDB (New tables `course` and `user` will be created, make sure you have space for them)
+4. Port 8080
 
 ## How to Build and Run the App
 1. Clone the project to your computer
-```
+``` shell
 git clone https://github.com/lichao0817/everspring-practicum.git
 cd everspring-practicum
 ```
 
-2. Build the app with docker:
+2. Build the app with Maven:
+``` shell
+mvn package
+```
+3. Run the app
+``` shell
+java -jar target/tinylms-1.0.0.jar
+```
 
-  ```
-  docker build -t app/main .
-  docker run -p 8080:8080 -d app/main
-  ```
-  or you can run the application using go instead:
-  ```
-  go run main.go
-  ```
 ## Assumptions
 1. Different users with same names should be allowed to register.
 2. Each class only has one section.
 3. To make the url thorter, assume that this is the only version of the API. So no version number is needed in the API url.
+4. Only `GET`, `PUT`, `POST`, and `DELETE` are used, other http methods will generate an error.
+5. Only the URLs metioned in the document are accessible, other URLs would generate an error.
+6. Status code is sufficient for methods that are not `GET` in order for simplicity and short payload.
 
 ## API Services
 ### 1. Users
@@ -275,7 +277,7 @@ DELETE http://localhost:8080/classes/{courseCode}
 ##### i) Request
 ###### URL
 ```
-PUT http://localhost:8080/classes/{courseCode}/users/{username}
+PUT or POST http://localhost:8080/classes/{courseCode}/users/{username}
 ```
 ##### ii) Response
 ###### Status
