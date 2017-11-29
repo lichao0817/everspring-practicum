@@ -189,18 +189,7 @@ GET http://localhost:8080/classes/{courseCode}
    }
 }
 ```
-#### d) Delete a Class by CourseCode
-##### i) Request
-###### URL
-```
-DELETE http://localhost:8080/classes/{courseCode}
-```
-##### ii) Response
-###### Status
-`204`: the class can be successfully found
-
-`404`: the class cannot be found
-#### e) Update a Class by CourseCode
+#### d) Update a Class by CourseCode
 ##### i) Request
 ###### URL
 ```
@@ -218,7 +207,17 @@ PUT http://localhost:8080/classes/{courseCode}
 `204`: the class has been successfully updated
 
 `404`: the class cannot be found
+#### e) Delete a Class by CourseCode
+##### i) Request
+###### URL
+```
+DELETE http://localhost:8080/classes/{courseCode}
+```
+##### ii) Response
+###### Status
+`204`: the class can be successfully found
 
+`404`: the class cannot be found
 ### 3. Enrollment
 #### a) Enroll an User to a Class
 ##### i) Request
