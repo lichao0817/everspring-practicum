@@ -88,6 +88,30 @@ POST http://localhost:8080/users
 `400`: either the username or the type is not valid
 
 `409`: an user with the same `username` has already been created
+#### c) Find an User by Username
+##### i) Request
+###### URL
+```
+GET http://localhost:8080/users/{username}
+```
+##### ii) Response
+###### Status
+`200`: the user can be successfully found
+
+`404`: the user cannot be found
+###### Body
+``` json
+{
+    "data": {
+        "user": {
+            "courses": [],
+            "username": "jsmith",
+            "name": "Jon Smith",
+            "type": "student"
+        }
+    }
+}
+```
 ### 2. Classes
 #### a) List All Classes
 ##### i) Request
