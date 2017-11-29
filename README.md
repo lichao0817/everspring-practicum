@@ -47,16 +47,28 @@ GET http://localhost:8080/users
     "data": {
         "users": [
             {
-                "courses": [],
+                "courses": [
+                    "cs302"
+                ],
                 "username": "jsmith",
                 "name": "Jon Smith",
                 "type": "student"
             },
             {
-                "courses": [],
+                "courses": [
+                    "cs302"
+                ],
                 "username": "asmith",
                 "name": "Adam Smith",
                 "type": "instructor"
+            },
+            {
+                "courses": [
+                    "math340"
+                ],
+                "username": "Ablk",
+                "name": "Alice Black",
+                "type": "student"
             }
         ]
     }
