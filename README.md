@@ -219,7 +219,8 @@ PUT http://localhost:8080/classes/{courseCode}
 
 `404`: the class cannot be found
 
-#### f) Enroll an User to a Class
+### 3. Enrollment
+#### a) Enroll an User to a Class
 ##### i) Request
 ###### URL
 ```
@@ -232,7 +233,7 @@ PUT http://localhost:8080/classes/{courseCode}/users/{username}
 `208`: the user has already enrolled
 
 `400`: either the user or class does not exist
-#### f) Unroll an User from a Class
+#### b) Unroll an User from a Class
 ##### i) Request
 ###### URL
 ```
