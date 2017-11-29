@@ -46,7 +46,7 @@ public class CourseController {
     public ResponseEntity<String> getCourse(@PathVariable("courseCode") String courseCode) {
         Course c = courseService.getCourse(courseCode);
         if (c == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(Utils.getJsonBody(c), HttpStatus.OK);
     }
@@ -54,17 +54,17 @@ public class CourseController {
     @RequestMapping(value = "/{courseCode}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteCourse(@PathVariable("courseCode") String courseCode) {
         if (courseService.deleteCourse(courseCode)) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "/{courseCode}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateCourse(@PathVariable("courseCode") String courseCode, @RequestBody Course c) {
         if (c.getCourseCode().equals(courseCode) && courseService.updateCourse(c)) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "{courseCode}/users/{username}", method = RequestMethod.PUT)
@@ -106,9 +106,9 @@ public class CourseController {
             courses.remove(courseCode);
             userService.save(user);
             courseService.save(course);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
