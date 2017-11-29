@@ -157,20 +157,20 @@ GET http://localhost:8080/classes
 ###### Body
 ``` json
 {
-    "data": [
-        {
-            "users": [
-                "jdoe"
-            ],
-            "courseCode": "cs302",
-            "name": "Intro to CS"
-        },
-        {
-            "users": [],
-            "courseCode": "math340",
-            "name": "Linear Algebra"
-        }
-    ]
+    "data": {
+        "courses": [
+            {
+                "users": [],
+                "courseCode": "math340",
+                "name": "Linear Algebra"
+            },
+            {
+                "users": [],
+                "courseCode": "cs302",
+                "name": "Intro to Computer Science"
+            }
+        ]
+    }
 }
 ```
 `users`: the `list` of users that have been added to the course
@@ -212,11 +212,14 @@ GET http://localhost:8080/classes/{courseCode}
 `404`: the class cannot be found
 ###### Body
 ``` json
-{  
-   "data":{  
-      "name":"Linear Algebra",
-      "courseCode":"math340"
-   }
+{
+    "data": {
+        "course": {
+            "users": [],
+            "courseCode": "math340",
+            "name": "Linear Algebra"
+        }
+    }
 }
 ```
 #### d) Update a Class by CourseCode
