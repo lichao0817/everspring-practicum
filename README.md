@@ -8,9 +8,12 @@ TinyLMS won’t have all the features of a real LMS, of course. TinyLMS will hav
 do the following:
 
 • Create, edit, and delete Courses.
+
     o A Course has two fields: name and courseCode.
 • Create, edit, and delete Users.
+
     o A User has two fields: name and type (“student” or “instructor”)
+    
 • Add and remove Users from Courses
 
 TinyLMS will just have a backend API to accomplish the above.
