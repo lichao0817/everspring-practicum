@@ -1,5 +1,18 @@
 # Everspring Practicum
 
+## Problem Description:
+A Learning Management System, or LMS, is software that delivers an online course. Everspring
+uses several of them in its partnerships with leading universities. In this assignment, you will
+make a tiny one – TinyLMS.
+TinyLMS won’t have all the features of a real LMS, of course. TinyLMS will have the ability to
+do the following:
+• Create, edit, and delete Courses.
+o A Course has two fields: name and courseCode.
+• Create, edit, and delete Users.
+o A User has two fields: name and type (“student” or “instructor”)
+• Add and remove Users from Courses
+TinyLMS will just have a backend API to accomplish the above.
+
 ## System Requirements
 1. Java 8
 2. Maven
